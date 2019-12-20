@@ -85,11 +85,16 @@ class Car {
   fill(gallons){
     return this.tank +=gallons;
   }
-  drive(distance){
-    if( distance>0)
-    return (this.odometer +=distance);
+  // drive(distance){
+  //   if( distance>0)
+  //   return (this.odometer +=distance);
     // return( this.tank -=);
     // return `I ran out of fuel at ${} miles`
+
+    drive(distance) {
+      this.odometer = this.odometer + distance;
+      this.tank = this.tank - distance / this.milesPerGallon;  
+      return
   }
   
 }
@@ -202,14 +207,15 @@ constructor(obj){
 */
 class ProjectManager extends Instructor {
   
-   constructor(obj){
+    constructor(obj){
     super(obj)
     this.gradClassName = obj.gradClassName,
-    this.favInstructor = obj.favInstructor,
+    this.favInstructor = obj.favInstructor
     }
 
-    standup(){
+    standup(channel){
 
+      return`${this.name} announces to ${channel}, @channel standy times!`
     }
 
 
